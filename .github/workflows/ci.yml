@@ -65,7 +65,7 @@ jobs:
       run: |
         cmake --build build --config ${{matrix.config.build_type}}
         
-    - name: Publish
+    - run: echo hi
     - uses: actions/upload-artifact@v2
       with:
         name: pwnal-${{matrix.config.os}}.zip
