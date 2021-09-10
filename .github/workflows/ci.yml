@@ -64,3 +64,11 @@ jobs:
       shell: bash
       run: |
         cmake --build build --config ${{matrix.config.build_type}}
+        
+    - name: Publish
+    - uses: actions/upload-artifact@v2
+      with:
+        name: pwnal-${{matrix.config.os}}.zip
+        path: build/${{matrix.config.build_type}}/
+        
+        
